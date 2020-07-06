@@ -1,0 +1,37 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: >-
+  Aws Exodia piece
+
+Transform:
+- AWS::Serverless-2016-10-31
+
+Globals:
+  Function:
+    Environment:
+      Variables:
+        Spotify_Access: '{{resolve:ssm:Spotify_Access:1}}'
+        Spotify_Refresh: '{{resolve:ssm:Spotify_Refresh:1}}'
+        Spotify_Id: '{{resolve:ssm:Spotify_Id:1}}'
+        Spotify_Secret: '{{resolve:ssm:Spotify_Secret:1}}'
+        Spotify_BasicAuth: '{{resolve:ssm:Spotify_BasicAuth:1}}'
+
+Resources:
+  ExodiaTopic:
+    Type: AWS::SNS::Topic
+
+  ExodiaFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Description: yeet
+      Runtime: nodejs12.x
+      CodeUri: ./src
+      Handler: function.handler
+      Events:
+        SNSTopicEvent:
+          Type: SNS
+          Properties:
+            Topic: !Ref ExodiaTopic
+      MemorySize: 128
+      Timeout: 100
+      Policies:
+        - AWSLambdaBasicExecutionRole
