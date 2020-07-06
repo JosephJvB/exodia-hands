@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack-cli",
-    "deploy": "sam deploy -t ../.aws-sam/build/template.yaml --region ap-southeast-2 --stack-name Exodia --s3-prefix Exodia --s3-bucket aws-sam-cli-managed-default-samclisourcebucket-aatalpn2t0fj --no-confirm-changeset --capabilities CAPABILITY_IAM --no-fail-on-empty-changeset"
+    "deploy": "sam deploy -t ../.aws-sam/build/template.yaml --region ap-southeast-2 --stack-name tstExodia --s3-prefix tstExodia --s3-bucket aws-sam-cli-managed-default-samclisourcebucket-aatalpn2t0fj --no-confirm-changeset --capabilities CAPABILITY_IAM --no-fail-on-empty-changeset"
   },
   "keywords": [],
   "author": "",
