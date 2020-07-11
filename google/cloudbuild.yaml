@@ -17,3 +17,4 @@ steps:
   - function-1
   - --source=./build
   - --trigger-topic=exodia-topic
+  - --region=australia-southeast1
