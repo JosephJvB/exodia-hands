@@ -18,3 +18,4 @@ steps:
   - --source=./build
   - --trigger-topic=exodia-topic
   - --region=australia-southeast1
+  - --entry-point=handler

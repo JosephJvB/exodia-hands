@@ -6,10 +6,10 @@ module.exports = {
   entry: path.join(__dirname, 'src/function.js'),
   output: {
     path: path.join(__dirname, 'build'),
-    filename: 'app.js',
+    filename: 'function.js',
     libraryTarget: 'commonjs2',
   },
-  externals: process.env.NODE_ENV === 'development' ? [] : ['aws-sdk'],
+  externals: [], //process.env.NODE_ENV === 'development' ? [] : ['aws-sdk'],
   mode: process.env.NODE_ENV || 'production',
   node: false,
   devtool: '',
