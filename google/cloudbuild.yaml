@@ -1,10 +1,19 @@
 steps:
 - name: node
+  dir: 'google'
   entrypoint: npm
   args: ['install']
-  dir: 'google'
 
 - name: node
+  dir: 'google'
   entrypoint: npm
   args: ['run', 'build']
+
+- name: 'gcr.io/cloud-builders/gcloud'
   dir: 'google'
+  args:
+  - functions
+  - deploy
+  - exodia-function
+  - --source=./build
+  - --trigger-topic
