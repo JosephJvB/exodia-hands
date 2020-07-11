@@ -6,3 +6,4 @@ aws/.aws-sam/build/**/*
 google/build/**/*
 !google/build/.gitkeep
 .env
+google.json
