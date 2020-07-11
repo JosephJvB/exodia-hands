@@ -16,4 +16,4 @@ steps:
   - deploy
   - exodia-function
   - --source=./build
-  - --trigger-topic
+  - --trigger-topic exodia-topic
