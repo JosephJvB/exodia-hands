@@ -21,7 +21,7 @@ class Messages {
         return new Promise((resolve, reject) => {
             const params = {
                 Message: JSON.stringify({chain}),
-                Subject: '',
+                Subject: 'reeee',
                 TopicArn: process.env.AWS_Topic
             }
             this.client.publish(params, (err, _) => {

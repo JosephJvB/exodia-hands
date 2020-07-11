@@ -1,6 +1,8 @@
 node_modules
 .DS_Store
 .vscode
-.aws-sam
-dist
+aws/.aws-sam/build/**/*
+!aws/.aws-sam/build/.gitkeep
+google/build/**/*
+!google/build/.gitkeep
 .env

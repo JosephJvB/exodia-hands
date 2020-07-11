@@ -1,20 +1,13 @@
 const path = require('path')
-const AwsSamPlugin = require('aws-sam-webpack-plugin')
-
-const awsSamPlugin = new AwsSamPlugin({
-  projects: {
-    main: path.join(__dirname, '../template.yaml')
-  }
-})
 
 module.exports = {
   target: 'node',
   devtool: 'inline-cheap-module-source-map',
-  entry: () => awsSamPlugin.entry(),
+  entry: path.join(__dirname, 'src/function.js'),
   output: {
-    filename: (chunkData) => awsSamPlugin.filename(chunkData),
+    path: path.join(__dirname, 'build'),
+    filename: 'app.js',
     libraryTarget: 'commonjs2',
-    path: path.resolve('.')
   },
   externals: process.env.NODE_ENV === 'development' ? [] : ['aws-sdk'],
   mode: process.env.NODE_ENV || 'production',
@@ -49,8 +42,7 @@ module.exports = {
             }
           }
         ]
-      }
+      },
     ]
   },
-  plugins: [awsSamPlugin]
 }
