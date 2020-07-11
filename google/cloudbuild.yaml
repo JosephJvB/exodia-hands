@@ -14,6 +14,6 @@ steps:
   args:
   - functions
   - deploy
-  - exodia-function
+  - function-1
   - --source=./build
   - --trigger-topic=exodia-topic
